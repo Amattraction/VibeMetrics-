@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VibeMetrics - Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>VibeMetrics : Sentiment Analyzer </h1>
+            <!-- <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav> -->
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Analyze the Mood </h2>
+        <p>Enter a phrase below to discover its emotional tone with our Sentiment Analyzer.</p>
+        <form method="POST" action="/predict" class="search-form">
+            <input type="text" name="tweet" placeholder="Enter a tweet..." required>
+            <button type="submit">Analyze</button>
+        </form>
+    </section>
+
+    <section class="result container">
+        {% if prediction %}
+            <div class="output-card">
+                <h3>Phrase:</h3>
+                <p class="tweet-text">"{{ tweet }}"</p>
+                <h3>Prediction:</h3>
+                <p class="prediction">{{ prediction }}</p>
+            </div>
+        {% endif %}
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Twitter Sentiment Analysis Project <br>
+        BY Kashish Jain, Student @DHSGSU <br>
+      Major Project for BCA <br>
+    </footer>
+</body>
+</html>
+
+
