@@ -1,0 +1,7 @@
+services:
+  -type: web 
+   name: flask-sentiment-app
+   env: python
+   buildCommand: ""
+  runCommand: "gunicorn app.app"
+  
