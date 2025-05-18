@@ -10,11 +10,18 @@ body {
     color: #2c3e50;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* space between logo and text */
+  padding-top: 20px;
 }
+
+.logo {
+  height: 60px; /* adjust as needed */
+}
+
 
 header {
     background-color: #023047;
@@ -98,6 +105,7 @@ nav a:hover {
     margin: 40px auto;
     text-align: center;
 }
+
 
 .output-card {
     background-color: #ffffff;
