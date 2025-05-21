@@ -227,4 +227,14 @@ def detect_emotions(text):
 
 if __name__ == '__main__':
     print("Starting Flask server on port 5001...")
-   
+    import threading
+    import time
+    import webbrowser
+    
+    def open_browser():
+        time.sleep(3)
+        webbrowser.open("http://127.0.0.1:5001/")
+        print("Browser opened at http://127.0.0.1:5001/")
+    
+    threading.Thread(target=open_browser).start()
+    app.run(debug=True, port=5001)
