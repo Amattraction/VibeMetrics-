@@ -221,9 +221,10 @@ def analyze_emotions():
         keywords=keywords
     )
 
+from textblob import TextBlob
 def detect_emotions(text):
-    emotions = ['happy', 'sad', 'anger', 'fear', 'surprise', 'love', 'disgust']
-    return {emotion: text.lower().count(emotion) for emotion in emotions}
+    analysis = TextBlob(text)
+    return {"polarity": analysis.sentiment.polarity, "subjectivity": analysis.sentiment.subjectivity}
 
 if __name__ == '__main__':
     print("Starting Flask server on port 5001...")
