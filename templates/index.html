@@ -9,15 +9,23 @@
     <header>
         <div class="header-container">
             <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px;">
-            <h1>VibeMetrics : Sentiment Analyzer </h1>
+            <h1>VibeMetrics : Sentiment Analyzer</h1>
         </div>
+        <!-- Add Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('show_wordcloud') }}" class="btn-nav">☁️ View Word Cloud</a></li>
+                <li><a href="{{ url_for('show_graph') }}" class="btn-nav">📊 View Sentiment Trend Graph</a></li>
+                <li><a href="{{ url_for('analyze_emotions') }}" class="btn-nav">📝 Analyze Custom Text</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
-        <h2>Analyze the Mood </h2>
+        <h2>Analyze the Mood</h2>
         <p>Enter a phrase below to discover its emotional tone with our Sentiment Analyzer.</p>
-        <form method="POST" action="/predict" class="search-form">
-            <input type="text" name="tweet" placeholder="Enter a tweet..." required>
+        <form method="POST" action="/" class="search-form">
+            <input type="text" name="tweet" placeholder="Type a tweet to analyze its vibe!" value="{{ tweet }}" required>
             <button type="submit">Analyze</button>
         </form>
     </section>
@@ -28,16 +36,37 @@
                 <h3>Phrase:</h3>
                 <p class="tweet-text">"{{ tweet }}"</p>
                 <h3>Prediction:</h3>
-                <p class="prediction">{{ prediction }}</p>
+                <p class="prediction {{ 'positive' if prediction == '😄 Positive' else 'negative' }}">{{ prediction }}</p>
+            </div>
+        {% endif %}
+
+        {% if keywords %}
+            <div class="output-card keywords">
+                <h3>🔑 Top Keywords</h3>
+                <ul>
+                    {% for kw, score in keywords %}
+                        <li>{{ kw }} <span class="keyword-score">(Score: {{ "%.3f" | format(score) }})</span></li>
+                    {% endfor %}
+                </ul>
             </div>
         {% endif %}
     </section>
 
+    {% if history %}
+    <section class="history container">
+        <h3>Last Searches:</h3>
+        <ul>
+            {% for item in history %}
+                <li class="{{ 'positive' if item[1] == '😄 Positive' else 'negative' }}">
+                    <strong>{{ item[0] }}</strong>: {{ item[1] }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
     <footer>
-        <p>&copy; 2025 Twitter Sentiment Analysis Project <br>
-          Major Project for BCA <br>
+        <p>© 2025 VibeMetrics. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
-
