@@ -4,3 +4,5 @@ scikit-learn
 gunicorn 
 matplotlib
 wordcloud
+textblob 
+yake 
