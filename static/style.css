@@ -11,21 +11,20 @@ body {
 }
 
 .header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px; /* space between logo and text */
-  padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* space between logo and text */
+    padding: 20px 0; /* Adjusted padding */
 }
 
 .logo {
-  height: 60px; /* adjust as needed */
+    height: 60px; /* adjust as needed */
 }
-
 
 header {
     background-color: #023047;
-    padding: 20px 0;
+    padding: 0 0 10px 0; /* Adjusted padding to accommodate nav */
     color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -39,7 +38,7 @@ header h1 {
 nav ul {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     list-style: none;
     margin-top: 10px;
 }
@@ -53,6 +52,29 @@ nav a {
 
 nav a:hover {
     color: #8ecae6;
+}
+
+/* New styles for navigation bar buttons */
+.btn-nav {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #023047 0%, #1a5e8a 100%); /* Gradient background */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px; /* Slightly less rounded for a modern look */
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px; /* Subtle letter spacing for elegance */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for depth */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.btn-nav:hover {
+    background: linear-gradient(135deg, #034d73 0%, #2a7ab8 100%); /* Slightly lighter gradient on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+    color: #e9f5f8; /* Slightly lighter text color on hover */
 }
 
 .hero {
@@ -106,6 +128,157 @@ nav a:hover {
     text-align: center;
 }
 
+.history {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.history h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.history ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.history li {
+    margin: 8px 0;
+}
+
+.history li.positive {
+    color: green;
+}
+
+.history li.negative {
+    color: red;
+}
+
+.sentiment-trends {
+    margin: 30px auto;
+    max-width: 600px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sentiment-trends h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.sentiment-trends img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.sentiment-trends p {
+    color: #777;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.graph-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.graph-link a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.graph-link a:hover {
+    text-decoration: underline;
+}
+
+/* Removed .graph-buttons and .btn-graph since they are now in the nav bar */
+
+.analyze-section {
+    max-width: 800px; /* Slightly wider for better chart display */
+    margin: 40px auto;
+    padding: 30px;
+    background: #e6f7fa;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+}
+
+.analyze-section h2 {
+    text-align: center;
+    color: #023047;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.instructions {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    max-width: 600px;
+    height: 150px;
+    padding: 12px;
+    border: 2px solid #023047;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #219EBC;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button[type="submit"] {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #023047 0%, #1a5e8a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #034d73 0%, #2a7ab8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.chart-container {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
 .output-card {
     background-color: #ffffff;
@@ -128,8 +301,15 @@ nav a:hover {
 
 .prediction {
     font-weight: bold;
-    color: #ff6b6b;
     font-size: 1.3rem;
+}
+
+.prediction.positive {
+    color: #28a745; /* Green for positive sentiment */
+}
+
+.prediction.negative {
+    color: #dc3545; /* Red for negative sentiment */
 }
 
 footer {
@@ -138,4 +318,160 @@ footer {
     text-align: center;
     padding: 15px 0;
     margin-top: 50px;
+}
+
+/* New styles for Word Cloud and Keywords */
+.word-cloud {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.word-cloud-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.keywords {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.keywords h3 {
+    color: #023047;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.keywords ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.keywords li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.keyword-score {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.word-cloud {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.word-cloud-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.no-data {
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Style for the analyze form */
+.analyze-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.analyze-form textarea {
+    width: 100%;
+    max-width: 600px;
+    height: 150px;
+    padding: 12px;
+    border: 2px solid #023047;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.analyze-form textarea:focus {
+    border-color: #219EBC;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.analyze-form button {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #023047 0%, #1a5e8a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.analyze-form button:hover {
+    background: linear-gradient(135deg, #034d73 0%, #2a7ab8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design for Word Cloud, Keywords, and Navigation Buttons */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        gap: 10px;
+    }
+
+    .btn-nav {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 300px; /* Limit width for aesthetics */
+        margin: 0 auto; /* Center the buttons */
+        text-align: center;
+    }
+
+    .word-cloud-img {
+        max-width: 90%;
+    }
+
+    .keywords li {
+        font-size: 1rem;
+    }
+
+    .keyword-score {
+        font-size: 0.8rem;
+    }
+
+    .analyze-section {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .analyze-form textarea {
+        max-width: 100%;
+    }
+
+    .chart-container {
+        padding: 15px;
+    }
 }
