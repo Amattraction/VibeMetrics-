@@ -11,6 +11,14 @@
             <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px;">
             <h1>VibeMetrics : Sentiment Analyzer</h1>
         </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}" class="nav-btn">🏠 Home</a></li>
+                <li><a href="{{ url_for('show_wordcloud') }}" class="nav-btn">☁️ Word Cloud</a></li>
+                <li><a href="{{ url_for('show_graph') }}" class="nav-btn">📊 Sentiment Graph</a></li>
+                <li><a href="{{ url_for('analyze_emotions') }}" class="nav-btn">📝 Analyze Text</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
