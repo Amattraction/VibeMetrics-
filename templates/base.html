@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VibeMetrics - Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px;">
+            <h1>VibeMetrics : Sentiment Analyzer</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}" class="nav-btn">🏠 Home</a></li>
+                <li><a href="{{ url_for('show_wordcloud') }}" class="nav-btn">☁️ Word Cloud</a></li>
+                <li><a href="{{ url_for('show_graph') }}" class="nav-btn">📊 Sentiment Graph</a></li>
+                <li><a href="{{ url_for('analyze_emotions') }}" class="nav-btn">📝 Analyze Text</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    {% block footer %}
+    <footer>
+        <p>© 2025 VibeMetrics. All rights reserved.</p>
+    </footer>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="analyze-section">
+    <h2>🧠 Analyze Custom Text Emotions</h2>
+    <p class="instructions">Enter your paragraph or text below to visualize the detected emotions:</p>
+
+    <form method="POST" action="/analyze_emotions">
+        <textarea name="text" placeholder="Type or paste your text here..." required>{{ input_text or '' }}</textarea>
+        <button type="submit">🔍 Analyze Emotions</button>
+    </form>
+
+    {% if emotion_counts %}
+        <div class="output-card">
+            <h3>📊 Emotion Distribution</h3>
+
+            {% set total = emotion_counts.values() | sum %}
+            {% if total > 0 %}
+                <!-- Increased width and height for better chart visibility -->
+                <div style="width: 90%; max-width: 700px; height: 400px; margin: auto;">
+                    <canvas id="emotionChart"></canvas>
+                </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    const data = {
+                        labels: {{ emotion_counts.keys() | list | tojson }},
+                        datasets: [{
+                            label: 'Detected Emotions',
+                            data: {{ emotion_counts.values() | list | tojson }},
+                            backgroundColor: [
+                                '#4caf50', '#f44336', '#2196f3', '#ff9800',
+                                '#9c27b0', '#00bcd4', '#ffc107', '#795548'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    const options = {
+                        responsive: true,
+                        maintainAspectRatio: false,  // Let canvas fill container height
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                suggestedMax: Math.max(...data.datasets[0].data) + 2, // Add some padding on top
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        },
+                        layout: {
+                            padding: {
+                                top: 20,
+                                bottom: 20
+                            }
+                        }
+                    };
+
+                    const ctx = document.getElementById('emotionChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: data,
+                        options: options
+                    });
+                </script>
+            {% else %}
+                <p class="no-data">No emotions detected in the text. Please try with different text.</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+
+    {% if keywords %}
+        <div class="output-card keywords">
+            <h3>🔑 Top Keywords</h3>
+            <ul>
+                {% for kw, score in keywords %}
+                    <li>{{ kw }} <span class="keyword-score">(Score: {{ "%.3f" | format(score) }})</span></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if not word_cloud_img and emotion_counts and total == 0 %}
+        <p class="no-data">No word cloud or keywords generated. Try a longer or more descriptive text!</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <p>© 2025 VibeMetrics. All rights reserved.</p>
+    </footer>
+{% endblock %}

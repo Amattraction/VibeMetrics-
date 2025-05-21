@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Trend Graph</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sentiment Trend </h1>
+    </header>
+
+    <main class="graph-container">
+        {% if message %}
+            <p>{{ message }}</p>
+        {% else %}
+            <img src="data:image/png;base64,{{ graph_img }}" alt="Sentiment Trend Graph">
+        {% endif %}
+    </main>
+    {% endblock %}
+{% block footer %}
+    <footer>
+        <p>© 2025 VibeMetrics. All rights reserved.</p>
+    </footer>
+{% endblock %}

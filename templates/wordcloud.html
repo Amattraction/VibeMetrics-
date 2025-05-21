@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="analyze-section">
+    <h2>☁️ Word Cloud</h2>
+    <p class="instructions">Visual representation of the most recent tweet's key words:</p>
+
+    {% if word_cloud_img %}
+        <div class="output-card word-cloud">
+            <h3>Recent Tweet:</h3>
+            <p class="tweet-text">"{{ tweet }}"</p>
+            <h3>Word Cloud:</h3>
+            <img src="data:image/png;base64,{{ word_cloud_img }}" alt="Word Cloud" class="word-cloud-img">
+        </div>
+    {% else %}
+        <p class="no-data">{{ message }}</p>
+    {% endif %}
+</div>
+{% endblock %}
+{% block footer %}
+    <footer>
+        <p>© 2025 VibeMetrics. All rights reserved.</p>
+    </footer>
+{% endblock %}
